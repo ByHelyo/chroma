@@ -10,7 +10,8 @@
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "lint": "prettier --plugin-search-dir . --check . && eslint .",
     "format": "prettier --plugin-search-dir . --write .",
-    "tauri": "tauri"
+    "tauri": "tauri",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@tauri-apps/api": "^1.4.0"
@@ -25,6 +26,7 @@
     "eslint": "^8.45.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-svelte": "^2.32.2",
+    "husky": "^8.0.3",
     "prettier": "^2.8.0",
     "prettier-plugin-svelte": "^2.10.1",
     "svelte": "^4.0.5",
