@@ -1,3 +1,1 @@
-<main>
-    Hello World!
-</main>
+<main>Hello World!</main>
