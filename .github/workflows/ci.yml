@@ -11,7 +11,7 @@ env:
   pnpm-version: 8
 
 jobs:
-  code-quality-frontend:
+  code_quality-frontend:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -37,7 +37,7 @@ jobs:
       - name: Run check
         run: pnpm run check
 
-  code-quality-backend:
+  code_quality-backend:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
