@@ -71,7 +71,7 @@ jobs:
 
   create-release:
     if: github.ref == 'refs/heads/main'
-    needs: [code-quality-frontend, code-quality-backend]
+    needs: [code_quality-frontend, code_quality-backend]
     permissions:
       contents: write
     runs-on: ubuntu-latest
