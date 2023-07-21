@@ -2,8 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [main]
-    tags: ['*.*.*']
+    branches: [main, develop]
   pull_request:
     types: [opened, reopened, synchronize]
 
@@ -71,7 +70,7 @@ jobs:
         working-directory: src-tauri
 
   create-release:
-    if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
+    if: github.ref == 'refs/heads/main'
     needs: [code-quality-frontend, code-quality-backend]
     permissions:
       contents: write
