@@ -32,8 +32,8 @@
         "fullscreen": false,
         "resizable": true,
         "title": "chroma",
-        "width": 800,
-        "height": 600
+        "width": 600,
+        "height": 800
       }
     ]
   }
