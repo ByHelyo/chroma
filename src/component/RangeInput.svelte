@@ -17,7 +17,7 @@
   }
 
   input {
-    width: 60%;
+    width: 56%;
   }
 
   label {
@@ -28,16 +28,17 @@
   }
 
   .label {
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    border-radius: 16px;
+    width: 60px;
+    height: 60px;
     background: var(--color-label);
   }
 
   .result {
+    font-weight: bold;
     border-radius: 4px;
     height: 60px;
     width: 100px;
-    background: var(--color);
+    background: rgb(0, 0, 0, 0.1);
   }
 </style>

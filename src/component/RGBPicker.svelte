@@ -11,9 +11,10 @@
 
 <style>
   .container {
-    width: 100%;
     display: flex;
+    background: rgb(127, 127, 127, 0.5);
     flex-direction: column;
     gap: 32px;
+    padding: 16px;
   }
 </style>
