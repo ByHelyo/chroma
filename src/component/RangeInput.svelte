@@ -17,7 +17,7 @@
   }
 
   input {
-    width: 56%;
+    width: 300px;
   }
 
   label {
