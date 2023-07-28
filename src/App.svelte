@@ -1,13 +1,14 @@
 <script lang="ts">
   import RGBPicker from './component/RGBPicker.svelte';
   import { color } from './store/color';
-
-  $: rgbstring = `rgb(${$color.red}, ${$color.green}, ${$color.blue})`;
+  import DisplayResults from './component/DisplayResults.svelte';
+  import { RgbFromColor } from './lib/color';
 </script>
 
-<main style="--color: {rgbstring}">
+<main style="--color: {RgbFromColor($color)}">
   <div class="container">
     <RGBPicker />
+    <DisplayResults />
   </div>
 </main>
 
@@ -20,5 +21,8 @@
 
   .container {
     padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   }
 </style>
