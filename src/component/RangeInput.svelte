@@ -24,7 +24,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 24px;
   }
 
   .label {
@@ -35,7 +34,6 @@
   }
 
   .result {
-    font-weight: bold;
     border-radius: 4px;
     height: 60px;
     width: 100px;
