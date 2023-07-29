@@ -8,7 +8,9 @@
 
   $: updateColor(hsl);
 
-  $: updateHsl($color);
+  $: if (!Color.fromHsl(hsl).equals($color)) {
+    updateHsl($color);
+  }
 
   function updateColor(hsl: Hsl) {
     $color = Color.fromHsl(hsl);
@@ -21,8 +23,22 @@
 
 <div class="container">
   <RangeInput bind:intensity={hsl.hue} label="red" max="360" --color-label="red" />
-  <RangeInput bind:intensity={hsl.saturation} label="blue" max="100" isPercentage={true} --color-label="green" />
-  <RangeInput bind:intensity={hsl.lightness} label="green" max="100" isPercentage={true} --color-label="blue" />
+  <RangeInput
+    bind:intensity={hsl.saturation}
+    label="blue"
+    max="100"
+    isPercentage={true}
+    step={0.1}
+    --color-label="green"
+  />
+  <RangeInput
+    bind:intensity={hsl.lightness}
+    label="green"
+    max="100"
+    isPercentage={true}
+    step={0.1}
+    --color-label="blue"
+  />
 </div>
 
 <style>

@@ -63,6 +63,10 @@ export class Color {
   toHex(): string {
     return '#' + componentToHex(this.red) + componentToHex(this.green) + componentToHex(this.blue);
   }
+
+  equals(color: Color): boolean {
+    return this.blue === color.blue && this.red === color.red && this.green === color.green;
+  }
 }
 
 function componentToHex(c): string {
