@@ -4,11 +4,12 @@
   export let min = '0';
   export let max: string;
   export let isPercentage = false;
+  export let step: number = 1;
 </script>
 
 <div class="container">
   <label class="label" for={label} />
-  <input type="range" id={label} bind:value={intensity} {min} {max} />
+  <input type="range" id={label} bind:value={intensity} {min} {max} {step} />
   {#if isPercentage}
     <label class="result" for={label}>{intensity}%</label>
   {:else}
