@@ -28,7 +28,7 @@
 <style>
   .container {
     display: flex;
-    background: rgb(127, 127, 127, 0.5);
+    background: rgb(127, 127, 127, 0.4);
     flex-direction: column;
     gap: 16px;
     padding: 16px;
