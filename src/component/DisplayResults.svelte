@@ -6,19 +6,19 @@
 <div class="container">
   <div class="result">{$color.toRgb()}</div>
   <button>
-    <img src="/public/copy.svg" alt="copy icon" />
+    <img src="/copy.svg" alt="copy icon" />
   </button>
 </div>
 <div class="container">
   <div class="result">{$color.toHex()}</div>
   <button>
-    <img src="/public/copy.svg" alt="copy icon" />
+    <img src="/copy.svg" alt="copy icon" />
   </button>
 </div>
 <div class="container">
   <div class="result">{Hsl.fromColor($color).toString()}</div>
   <button>
-    <img src="/public/copy.svg" alt="copy icon" />
+    <img src="/copy.svg" alt="copy icon" />
   </button>
 </div>
 
