@@ -1,8 +1,4 @@
 import { writable } from 'svelte/store';
-import type { Color } from '../type/color';
+import { Color } from '../lib/color';
 
-export const color = writable<Color>({
-  red: 0,
-  green: 255,
-  blue: 230
-});
+export const color = writable<Color>(new Color(0, 255, 230));

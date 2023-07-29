@@ -4,9 +4,9 @@
 </script>
 
 <div class="container">
-  <RangeInput bind:intensity={$color.red} label="red" --color-label="red" />
-  <RangeInput bind:intensity={$color.green} label="blue" --color-label="green" />
-  <RangeInput bind:intensity={$color.blue} label="green" --color-label="blue" />
+  <RangeInput bind:intensity={$color.red} label="red" max="255" --color-label="red" />
+  <RangeInput bind:intensity={$color.green} label="blue" max="255" --color-label="green" />
+  <RangeInput bind:intensity={$color.blue} label="green" max="255" --color-label="blue" />
 </div>
 
 <style>

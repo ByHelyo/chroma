@@ -1,54 +1,71 @@
-import type { Color } from '../type/color';
+import type { Hsl } from './Hsl';
 
-export function RgbFromColor(color: Color): string {
-  return `rgb(${color.red}, ${color.green}, ${color.blue})`;
-}
+export class Color {
+  red: number;
+  green: number;
+  blue: number;
 
-export function HexFromColor(color: Color): string {
-  return '#' + componentToHex(color.red) + componentToHex(color.green) + componentToHex(color.blue);
-}
+  constructor(red: number, green: number, blue: number) {
+    this.red = red;
+    this.green = green;
+    this.blue = blue;
+  }
 
-export function HslFromColor(color: Color): string {
-  const red = color.red / 255;
-  const green = color.green / 255;
-  const blue = color.blue / 255;
+  static fromHsl(hsl: Hsl): Color {
+    // Must be fractions of 1
+    const hue = hsl.hue;
+    const saturation = hsl.saturation / 100;
+    const lightness = hsl.lightness / 100;
 
-  // Find greatest and smallest channel values
-  const cmin = Math.min(red, green, blue),
-    cmax = Math.max(red, green, blue),
-    delta = cmax - cmin;
-  let h = 0,
-    s = 0,
-    l = 0;
+    const c = (1 - Math.abs(2 * lightness - 1)) * saturation,
+      x = c * (1 - Math.abs(((hue / 60) % 2) - 1)),
+      m = lightness - c / 2;
+    let r = 0,
+      g = 0,
+      b = 0;
 
-  // No difference
-  if (delta == 0) h = 0;
-  // Red is max
-  else if (cmax == red) h = ((green - blue) / delta) % 6;
-  // Green is max
-  else if (cmax == green) h = (blue - red) / delta + 2;
-  // Blue is max
-  else h = (red - green) / delta + 4;
+    if (0 <= hue && hue < 60) {
+      r = c;
+      g = x;
+      b = 0;
+    } else if (60 <= hue && hue < 120) {
+      r = x;
+      g = c;
+      b = 0;
+    } else if (120 <= hue && hue < 180) {
+      r = 0;
+      g = c;
+      b = x;
+    } else if (180 <= hue && hue < 240) {
+      r = 0;
+      g = x;
+      b = c;
+    } else if (240 <= hue && hue < 300) {
+      r = x;
+      g = 0;
+      b = c;
+    } else if (300 <= hue && hue < 360) {
+      r = c;
+      g = 0;
+      b = x;
+    }
+    r = Math.round((r + m) * 255);
+    g = Math.round((g + m) * 255);
+    b = Math.round((b + m) * 255);
 
-  h = Math.round(h * 60);
+    return new Color(r, g, b);
+  }
 
-  // Make negative hues positive behind 360°
-  if (h < 0) h += 360;
+  toRgb(): string {
+    return `rgb(${this.red}, ${this.green}, ${this.blue})`;
+  }
 
-  l = (cmax + cmin) / 2;
-
-  // Calculate saturation
-  s = delta == 0 ? 0 : delta / (1 - Math.abs(2 * l - 1));
-
-  // Multiply l and s by 100
-  s = +(s * 100).toFixed(1);
-  l = +(l * 100).toFixed(1);
-
-  return 'hsl(' + h + ',' + s + '%,' + l + '%)';
+  toHex(): string {
+    return '#' + componentToHex(this.red) + componentToHex(this.green) + componentToHex(this.blue);
+  }
 }
 
 function componentToHex(c): string {
   const hex = c.toString(16);
-  console.log(hex);
   return hex.length == 1 ? '0' + hex : hex;
 }

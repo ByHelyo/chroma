@@ -1,11 +1,11 @@
 <script lang="ts">
-  import { HexFromColor, HslFromColor, RgbFromColor } from '../lib/color';
   import { color } from '../store/color';
+  import { Hsl } from '../lib/Hsl';
 </script>
 
-<div>{RgbFromColor($color)}</div>
-<div>{HexFromColor($color)}</div>
-<div>{HslFromColor($color)}</div>
+<div>{$color.toRgb()}</div>
+<div>{$color.toHex()}</div>
+<div>{Hsl.fromColor($color).toString()}</div>
 
 <style>
   div {

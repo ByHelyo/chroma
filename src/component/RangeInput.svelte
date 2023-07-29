@@ -1,12 +1,19 @@
-<script lang="ts" xmlns="http://www.w3.org/1999/html">
+<script lang="ts">
   export let label: string;
   export let intensity: number;
+  export let min = '0';
+  export let max: string;
+  export let isPercentage = false;
 </script>
 
 <div class="container">
   <label class="label" for={label} />
-  <input type="range" id={label} bind:value={intensity} min="0" max="255" />
-  <label class="result" style="--color: #ffffff" for={label}>{intensity}</label>
+  <input type="range" id={label} bind:value={intensity} {min} {max} />
+  {#if isPercentage}
+    <label class="result" for={label}>{intensity}%</label>
+  {:else}
+    <label class="result" for={label}>{intensity}</label>
+  {/if}
 </div>
 
 <style>

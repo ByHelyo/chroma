@@ -2,12 +2,13 @@
   import RGBPicker from './component/RGBPicker.svelte';
   import { color } from './store/color';
   import DisplayResults from './component/DisplayResults.svelte';
-  import { RgbFromColor } from './lib/color';
+  import HsvPicker from './component/HslPicker.svelte';
 </script>
 
-<main style="--color: {RgbFromColor($color)}">
+<main style="--color: {$color.toRgb()}">
   <div class="container">
     <RGBPicker />
+    <HsvPicker />
     <DisplayResults />
   </div>
 </main>
