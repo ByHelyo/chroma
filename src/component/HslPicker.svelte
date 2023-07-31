@@ -1,8 +1,8 @@
 <script lang="ts">
-  import RangeInput from './RangeInput.svelte';
   import { color } from '../store/color';
   import { Hsl } from '../lib/Hsl';
   import { Color } from '../lib/color';
+  import RangeInputHsl from './RangeInputHsl.svelte';
 
   let hsl = Hsl.fromColor($color);
 
@@ -22,23 +22,9 @@
 </script>
 
 <div class="container">
-  <RangeInput bind:intensity={hsl.hue} label="red" max="360" --color-label="red" />
-  <RangeInput
-    bind:intensity={hsl.saturation}
-    label="blue"
-    max="100"
-    isPercentage={true}
-    step={0.1}
-    --color-label="green"
-  />
-  <RangeInput
-    bind:intensity={hsl.lightness}
-    label="green"
-    max="100"
-    isPercentage={true}
-    step={0.1}
-    --color-label="blue"
-  />
+  <RangeInputHsl bind:intensity={hsl.hue} label="HUE" max="360" />
+  <RangeInputHsl bind:intensity={hsl.saturation} label="SAT" max="100" isPercentage={true} step={0.1} />
+  <RangeInputHsl bind:intensity={hsl.lightness} label="LGT" max="100" isPercentage={true} step={0.1} />
 </div>
 
 <style>
