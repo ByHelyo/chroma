@@ -1,6 +1,9 @@
 <script lang="ts">
   import { color } from '../store/color';
   import { Hsl } from '../lib/Hsl';
+  import { writeText } from '@tauri-apps/api/clipboard';
+
+  $: hsl = Hsl.fromColor($color).toString();
 </script>
 
 <div class="container">
@@ -8,7 +11,7 @@
     <div>RGB</div>
     <div>{$color.toRgb()}</div>
   </div>
-  <button>
+  <button on:click={() => writeText($color.toRgb())}>
     <img src="/copy.svg" alt="copy icon" />
   </button>
 </div>
@@ -19,16 +22,16 @@
       {$color.toHex()}
     </div>
   </div>
-  <button>
+  <button on:click={() => writeText($color.toHex())}>
     <img src="/copy.svg" alt="copy icon" />
   </button>
 </div>
 <div class="container">
   <div class="result">
     <div>HSL</div>
-    <div>{Hsl.fromColor($color).toString()}</div>
+    <div>{hsl}</div>
   </div>
-  <button>
+  <button on:click={() => writeText(hsl)}>
     <img src="/copy.svg" alt="copy icon" />
   </button>
 </div>
