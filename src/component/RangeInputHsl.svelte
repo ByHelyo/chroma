@@ -8,7 +8,7 @@
 </script>
 
 <div class="container">
-  <label class="label" for={label} />
+  <label class="label" for={label}>{label}</label>
   <input type="range" id={label} bind:value={intensity} {min} {max} {step} />
   {#if isPercentage}
     <label class="result" for={label}>{intensity}%</label>
@@ -38,7 +38,6 @@
     border-radius: 16px;
     width: 60px;
     height: 60px;
-    background: var(--color-label);
   }
 
   .result {
