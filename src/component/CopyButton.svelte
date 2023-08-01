@@ -1,11 +1,22 @@
-<script>
+<script lang="ts">
   import { writeText } from '@tauri-apps/api/clipboard';
 
   export let text;
+
+  let label: string = 'COPY';
+
+  async function copy() {
+    await writeText(text);
+    label = 'COPIED';
+  }
+
+  function leave() {
+    label = 'COPY';
+  }
 </script>
 
-<button on:click={() => writeText(text)}>
-  <div>COPY</div>
+<button on:click={copy} on:mouseleave={leave}>
+  <div>{label}</div>
   <img src="/copy.svg" alt="copy icon" />
 </button>
 
@@ -14,8 +25,10 @@
     border: none;
     background: none;
     cursor: pointer;
-    padding: 16px;
+    width: 140px;
+    height: 56px;
     display: flex;
+    justify-content: center;
     align-items: center;
     color: white;
     font-size: 16px;

@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { color } from '../store/color';
   import RangeInputRgb from './RangeInputRgb.svelte';
 </script>
