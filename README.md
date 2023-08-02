@@ -10,7 +10,7 @@
 </div>
 
 <div align=center>
-  <img alt="Taby" src="https://github.com/ByHelyo/chroma/assets/70762494/af78fa25-1682-4bc1-ab0b-ae082951434c" />
+  <img alt="Chroma" src="https://github.com/ByHelyo/chroma/assets/70762494/31d038a7-4005-4987-b35b-faf9dd473124" />
 </div>
 
 <h2>About</h2>
