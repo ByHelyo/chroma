@@ -31,7 +31,7 @@
     justify-content: center;
     align-items: center;
     color: white;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
     gap: 16px;
   }
