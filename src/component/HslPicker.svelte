@@ -1,6 +1,6 @@
 <script lang="ts">
   import { color } from '../store/color';
-  import { Hsl } from '../lib/Hsl';
+  import { Hsl } from '../lib/hsl';
   import { Color } from '../lib/color';
   import RangeInputHsl from './RangeInputHsl.svelte';
 

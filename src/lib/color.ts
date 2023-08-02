@@ -1,4 +1,4 @@
-import type { Hsl } from './Hsl';
+import type { Hsl } from './hsl';
 
 export class Color {
   red: number;

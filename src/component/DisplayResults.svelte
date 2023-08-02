@@ -1,6 +1,6 @@
 <script lang="ts">
   import { color } from '../store/color';
-  import { Hsl } from '../lib/Hsl';
+  import { Hsl } from '../lib/hsl';
   import DisplayResult from './DisplayResult.svelte';
 
   $: hsl = Hsl.fromColor($color).toString();
